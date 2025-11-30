@@ -3,7 +3,8 @@ import { AIRecommendation } from "../types";
 
 // Initialize the Gemini client
 // Note: API_KEY is assumed to be available in process.env from the environment
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+//console.log("API Key available:", !!import.meta.env.VITE_GEMINI_API_KEY, "Key length:", import.meta.env.VITE_GEMINI_API_KEY?.length);
+const ai = new GoogleGenAI({ apiKey: "" });
 
 export const getTravelRecommendations = async (origin: string): Promise<AIRecommendation[]> => {
   try {
@@ -38,7 +39,7 @@ export const getTravelRecommendations = async (origin: string): Promise<AIRecomm
 
     const jsonText = response.text;
     if (!jsonText) return [];
-    
+
     const data = JSON.parse(jsonText) as AIRecommendation[];
     return data;
 

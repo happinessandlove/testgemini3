@@ -1,4 +1,6 @@
 import React from 'react';
+console.log('Entry point loaded!');
+
 import ReactDOM from 'react-dom/client';
 import App from './App';
 
